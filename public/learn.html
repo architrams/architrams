@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Real-time Stock Page</title>
+  <style>body { font-family: sans-serif; }
+  #price { font-size: 2em; }
+  </style>
+</head>
+<body>
+  <h1>Real-time Stock Price (IBM)</h1>
+  <div id="price">Loading...</div>
+  <a href="index.html">Back to AI Agent</a>
+<script>
+async function fetchPrice(){
+  try {
+    const res=await fetch('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=demo');
+    const data=await res.json();
+    const price=data["Global Quote"]["05. price"];
+    document.getElementById('price').textContent=`$${parseFloat(price).toFixed(2)}`;
+  } catch(e){
+    document.getElementById('price').textContent='Error fetching data';
+  }
+}
+fetchPrice();
+setInterval(fetchPrice,5000);
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "stock-ai-agent",
+  "version": "1.0.0",
+  "description": "Static AI agent web app for stock market portfolio management",
+  "scripts": {
+    "test": "echo \"No tests\""
+  },
+  "license": "MIT"
+}
